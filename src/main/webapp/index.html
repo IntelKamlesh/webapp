@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenShift Intelligent Monitor - Web-based monitoring tool for OpenShift clusters">
+    <meta name="author" content="OpenShift Monitor Team">
+    <title>OpenShift Intelligent Monitor</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container" role="main">
+
+        <!-- Header Section -->
+        <header class="app-header">
+            <h1>OpenShift Intelligent Monitor</h1>
+            <p class="subtitle">Select monitoring groups and generate comprehensive reports</p>
+        </header>
+
+        <!-- Controls Section -->
+        <section class="controls" aria-label="Monitoring controls">
+
+            <!-- Mode Selection -->
+            <fieldset class="mode-selector">
+                <legend class="sr-only">Select report mode</legend>
+                <label class="mode-option">
+                    <input type="radio" name="mode" value="actionable" checked aria-label="Actionable mode">
+                    <span class="mode-label">Actionable Mode</span>
+                    <small class="mode-description">(Problems only)</small>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="mode" value="verbose" aria-label="Verbose mode">
+                    <span class="mode-label">Verbose Mode</span>
+                    <small class="mode-description">(Full report)</small>
+                </label>
+            </fieldset>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons" role="group" aria-label="Actions">
+                <button type="button" id="selectAllBtn" class="btn btn-secondary" aria-label="Select all monitoring groups">
+                    Select All
+                </button>
+                <button type="button" id="deselectAllBtn" class="btn btn-secondary" aria-label="Deselect all monitoring groups">
+                    Deselect All
+                </button>
+                <button type="button" id="runBtn" class="btn btn-primary" aria-label="Run monitoring script">
+                    <span class="btn-text">Run Monitor</span>
+                    <span class="spinner" style="display: none;" role="status" aria-label="Loading"></span>
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Tabs Container -->
+        <section class="tabs-container" aria-label="Monitoring groups">
+
+            <!-- Tab Navigation -->
+            <nav class="tabs" id="tabs" role="tablist" aria-label="Monitoring group tabs">
+                <!-- Tabs will be generated dynamically -->
+                <div class="tabs-loading" role="status" aria-live="polite">
+                    Loading monitoring groups...
+                </div>
+            </nav>
+
+            <!-- Tab Content -->
+            <div class="tab-content-container" id="tabContent" role="region">
+                <!-- Tab content will be generated dynamically -->
+            </div>
+
+        </section>
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message" role="alert" aria-live="assertive" aria-atomic="true">
+            <!-- Status messages will appear here -->
+        </div>
+
+        <!-- Reports Section -->
+        <section class="reports-section" aria-labelledby="reports-heading">
+            <h2 id="reports-heading">Recent Reports</h2>
+            <div id="reportsList" class="reports-list" role="list">
+                <p class="loading" role="status" aria-live="polite">Loading reports...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
